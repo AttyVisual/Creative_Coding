@@ -587,12 +587,7 @@ async def main():
         screen.blit(art, (0, 0))
         screen.blit(glow_layer(blur(art, 4, 5), 0.75), (0, 0), special_flags=pygame.BLEND_ADD)
         screen.blit(glow_layer(blur(art, 8, 22), 0.45), (0, 0), special_flags=pygame.BLEND_ADD)
-        y = H - 70
-        #screen.blit(small.render(SIGN, True, (120, 112, 128)), (64, y - 26))
-        #screen.blit(small.render(hud(info), True, DIM), (64, y))
-        #screen.blit(small.render(f"letters {count:05,d}", True, DIM), (64, y + 26))
-        tt = small.render(f"{'●' if int(t * 2) % 2 == 0 else ' '} t {t:05.2f}s", True, PINK)
-        screen.blit(tt, (W - 64 - tt.get_width(), 30))
+        # HUD disattivato: solo animazione
         window.blit(screen if size == (W, H) else pygame.transform.smoothscale(screen, size), (0, 0))
         pygame.display.flip()
         await asyncio.sleep(0)
